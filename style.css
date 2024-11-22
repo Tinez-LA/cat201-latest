@@ -1,0 +1,302 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  overflow: auto;
+  overflow-x: hidden;
+ 
+}
+
+#video-section {
+  position: relative;
+  height: 100vh; /* Full height */
+  width: 100vw; /* Full width */
+}
+
+#image-section {
+  position: relative;
+  height: 100vh; /* Full height */
+  width: 100vw; /* Full width */
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This will cover the full area, potentially cropping the video */
+  z-index: -1;
+}
+.spacer {
+  height: 50vh;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  padding: 30px;
+  color: #9ebddc; /* This sets the text color */
+  background: rgba(252, 252, 252, 0.431); /* Adjust the RGBA values for your desired color and transparency */
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  transform: translateY(50%);
+  margin-top: -530px;
+  margin-bottom: 200px; /* Add space at the bottom of the container */
+}
+
+
+header h1, h1 {
+  color: #203a43;
+  font-size: 2.2em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  font-family: 'Silkscreen', sans-serif;
+}
+
+.welcome-section {
+  background-image: url('blue\ logo.png'); /* Update with your image path */
+  background-size: cover;
+  background-position: center;
+  padding: 400px 0; /* Add padding for spacing */
+}
+
+.file-label {
+  background-color: #203a43;
+  color: rgb(255, 255, 255);
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.file-label:hover {
+  background-color: #e03525;
+}
+
+
+input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: auto;
+  position: absolute;
+  z-index: -1;
+}
+
+.upload-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 10px solid #444;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.upload-section label {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.form-group input[type="file"] {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  display: none;
+}
+
+#fileList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#fileList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+#fileList button {
+  margin-left: 10px;
+}
+
+.delete-btn {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin-left: 10px;
+  color: white;
+  background-color: red;
+  cursor: pointer;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+#fileList li .delete-btn {
+  margin-left: 10px;
+}
+
+#file-name {
+  display: inline-block;
+  color: black;
+  margin-top: 10px;
+}
+
+.btn {
+  display: block;
+  width: auto;
+  padding: 15px;
+  margin: 20px auto;
+  border: 2px solid #4b6cb7;
+  background-image: linear-gradient(to right, #4b6cb7, #182848);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px black;
+}
+
+.btn:hover, .btn:focus {
+  background-image: linear-gradient(to left, #182848, #4b6cb7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  background-image: linear-gradient(to right, #3e8e41, #2ca58d);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+
+.btn-small {
+  display: block;
+  width: auto;
+  padding: 15px;
+  margin: 20px auto;
+  border: 2px solid #4b6cb7;
+  background-image: linear-gradient(to right, #4b6cb7, #182848);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px black;
+}
+.features-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 50px auto; /* Add space at the top of the features section */
+  padding: 20px;
+}
+
+.feature {
+  flex: 1; /* Each feature box will grow equally */
+  padding: 20px;
+  text-align: center;
+  min-width: 250px; /* Minimum width for smaller screens */
+}
+
+.icon img {
+  width: 80px; /* Adjust icon size */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.feature h2 {
+  font-size: 1.5em;
+  color: #203a43;
+  margin-top: 0.5em; /* Add space above the title */
+}
+
+.feature p {
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+  margin-top: 0.5em; /* Add space above the paragraph */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #203a43; /* Adjust the color as per your design */
+  color: white;
+  font-size: 16px;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0; /* Remove default margin */
+  font-family: 'Arial', sans-serif; /* Optional: Change as per your preference */
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    max-width: 90%; /* Each feature takes full width */
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 30px;
+    transform: translateY(0); /* Adjust for small screens */
+    margin-bottom: 30px; /* Less space on small screens */
+  }
+
+  .feature {
+    max-width: 100%; /* Each feature takes full width */
+    margin-bottom: 20px; /* Add some space between features */
+  }
+}
+
+.container > * {
+  margin: 0 auto;
+  display: block;
+}

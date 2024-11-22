@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KOSU PDF/TXT CONVERTER</title>
+    
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        var accumulatedFiles = [];
+
+        function handleSubmit() {
+            if(accumulatedFiles.length === 0) {
+                alert("Please select one or more files to convert.");
+                return false;
+            }
+            var formData = new FormData();
+            accumulatedFiles.forEach(function(file) {
+                formData.append('files[]', file);
+            });
+            // Submit formData with AJAX
+            return false;
+        }
+
+        function updateFileList() {
+            var fileInput = document.getElementById('fileInput');
+            Array.from(fileInput.files).forEach(function(file) {
+                accumulatedFiles.push(file);
+            });
+            displayFileList();
+        }
+
+        function displayFileList() {
+            var fileListContainer = document.getElementById('fileList');
+            fileListContainer.innerHTML = '';
+            accumulatedFiles.forEach(function(file, index) {
+                var listItem = document.createElement('li');
+                listItem.textContent = file.name;
+                var deleteButton = document.createElement('span');
+                deleteButton.classList.add('delete-btn');
+                deleteButton.textContent = 'X';
+                deleteButton.onclick = function() { removeFile(index); };
+                listItem.appendChild(deleteButton);
+                fileListContainer.appendChild(listItem);
+            });
+        }
+
+        function removeFile(index) {
+            accumulatedFiles.splice(index, 1);
+            displayFileList();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>TXT TO PDF File Converter</h1><br>
+        <form id="conversionForm" action="convert.php" method="post" enctype="multipart/form-data" onsubmit="return handleSubmit();">
+            <div class="upload-section">
+                <label for="fileInput" class="file-label">
+                    Select TXT file
+                    <input type="file" id="fileInput" name="fileUpload[]" accept=".txt,.pdf" multiple onchange="updateFileList()">
+                </label>
+                <ul id="fileList"></ul>
+            </div>
+            <div class="button-section">
+                <button type="submit" class="btn" name="action" value="convertToPdf">Convert TXT TO PDF</button><br>
+                <a href="index.html" class="btn btn-small">BACK</a>
+            </div>
+        </form>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br>
+    <footer>
+        <p>CONV. by Jivi, Thanis, Nitiyah, Tinesh, Nandan</p>
+    </footer>
+</body>
+</html>
